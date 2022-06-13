@@ -1,10 +1,12 @@
+// @global
 import React, { FC } from 'react';
-import { Button } from 'antd';
+// @local
+import ProductPage from './components/Product'
 import './App.css';
 
 const App: FC = () => (
   <div className="App">
-    <Button type="primary">Test</Button>
+    <ProductPage />
   </div>
 );
 
