@@ -43,7 +43,7 @@ const Surprise = ({ changeTab }: ISurpriseProps) => {
 const ProductPage: FC = () => {
   // states
   const [activeTab, setActiveTab] = useState<string>("product");
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible] = useState(true);
   const [loading, setLoading] = useState(false);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
@@ -59,14 +59,16 @@ const ProductPage: FC = () => {
     }, 2000);
   };
 
-  const handleCancel = () => setModalVisible(false);
 
   // helper jsx components
   const Notification = () => {
     setSelectedColor(color);
-    message
-      .success(`${color.toUpperCase()} has been selected`, 3)
-      .then(() => handleCancel());
+    message.success(`${color.toUpperCase()} has been selected`, 3).then(() => {   
+      const parent =   window.top
+      if (parent) {
+        parent.location.href = "http://localhost:3333/";
+      }
+    });
   };
 
   const Select = () => {
