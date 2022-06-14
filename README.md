@@ -55,4 +55,4 @@
   ```
   yarn serve
   ```
-  The application should now be running on port *http://localhost:3355*
+  The application should now be running on *http://localhost:3355*
